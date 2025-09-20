@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}500 - Server Error | {{ super() }}{% endblock %}
+
+{% block content %}
+<section class="error-page">
+    <div class="container">
+        <div class="error-content">
+            <div class="error-code">
+                <span class="cyber-text">500</span>
+            </div>
+            <div class="error-message">
+                <h1>Server Error</h1>
+                <p class="error-description">
+                    Our servers encountered an internal error. Don't worry, our cybersecurity protocols 
+                    are investigating this incident. Please try again in a few moments.
+                </p>
+                <div class="error-actions">
+                    <a href="{{ url_for('home') }}" class="btn btn-primary">
+                        <i class="fas fa-home"></i>
+                        Return Home
+                    </a>
+                    <a href="javascript:window.location.reload()" class="btn btn-secondary">
+                        <i class="fas fa-sync-alt"></i>
+                        Try Again
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ASCII Art for server error -->
+        <div class="ascii-art">
+            <pre>
+    ╔═══════════════════════════════════════╗
+    ║  SYSTEM ALERT: SERVER ERROR          ║
+    ║  ┌─────────────────────────────────┐  ║
+    ║  │ [CRITICAL] Internal Error       │  ║
+    ║  │ Code: 500                       │  ║
+    ║  │ Status: Server Malfunction      │  ║
+    ║  │ Action: Incident Logged         │  ║
+    ║  └─────────────────────────────────┘  ║
+    ╚═══════════════════════════════════════╝
+            </pre>
+        </div>
+    </div>
+</section>
+
+<style>
+.error-page {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--background-color) 0%, #0a0a0a 100%);
+    padding: var(--spacing-xl) 0;
+}
+
+.error-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.error-code {
+    margin-bottom: var(--spacing-lg);
+}
+
+.error-code .cyber-text {
+    font-size: 8rem;
+    font-weight: 900;
+    color: #ff4757;
+    text-shadow: 
+        0 0 10px #ff4757,
+        0 0 20px #ff4757,
+        0 0 40px #ff4757;
+    animation: pulse-red 2s infinite;
+    display: block;
+    font-family: 'Orbitron', monospace;
+}
+
+.error-message h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+    font-family: 'Orbitron', monospace;
+}
+
+.error-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xl);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-xl);
+}
+
+.error-actions .btn {
+    min-width: 150px;
+}
+
+.ascii-art {
+    margin-top: var(--spacing-xl);
+    opacity: 0.7;
+}
+
+.ascii-art pre {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid #ff4757;
+    overflow-x: auto;
+    text-align: left;
+}
+
+@keyframes pulse-red {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 768px) {
+    .error-code .cyber-text {
+        font-size: 5rem;
+    }
+    
+    .error-message h1 {
+        font-size: 2rem;
+    }
+    
+    .error-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ascii-art pre {
+        font-size: 0.6rem;
+        padding: var(--spacing-sm);
+    }
+}
+</style>
+{% endblock %}

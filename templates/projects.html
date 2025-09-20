@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+
+{% block title %}Projects - Sakil Ahamed Gayen{% endblock %}
+
+{% block content %}
+<!-- Projects Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Portfolio Projects</h1>
+        <p>Showcasing real-world cybersecurity implementations and achievements</p>
+    </div>
+</section>
+
+<!-- Projects Filter -->
+<section class="projects-filter">
+    <div class="container">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="penetration-testing">Penetration Testing</button>
+            <button class="filter-btn" data-filter="development">Development</button>
+            <button class="filter-btn" data-filter="cloud-security">Cloud Security</button>
+            <button class="filter-btn" data-filter="incident-response">Incident Response</button>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Grid -->
+<section class="projects-section">
+    <div class="container">
+        <div class="projects-grid" id="projects-grid">
+            {% for project in projects %}
+            <div class="project-card" data-category="{{ project.category.lower().replace(' ', '-') }}">
+                <div class="project-header">
+                    <div class="project-status {{ project.status.lower().replace(' ', '-') }}">
+                        {{ project.status }}
+                    </div>
+                    <div class="project-category">{{ project.category }}</div>
+                </div>
+                
+                <div class="project-content">
+                    <h3>{{ project.title }}</h3>
+                    <p class="project-description">{{ project.description }}</p>
+                    
+                    <div class="project-technologies">
+                        <h4>Technologies Used:</h4>
+                        <div class="tech-tags">
+                            {% for tech in project.technologies %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-footer">
+                    <button class="btn btn-outline project-details-btn" 
+                            onclick="openProjectModal('{{ project.title }}')">
+                        <i class="fas fa-eye"></i> View Details
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Project Statistics -->
+<section class="project-stats">
+    <div class="container">
+        <div class="section-header">
+            <h2>Project Impact</h2>
+            <p>Measurable results from cybersecurity implementations</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Vulnerabilities Identified</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">System Uptime Maintained</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction Rate</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Employees Trained</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Methodologies -->
+<section class="methodologies">
+    <div class="container">
+        <div class="section-header">
+            <h2>Testing Methodologies</h2>
+            <p>Standardized frameworks and approaches I follow</p>
+        </div>
+        
+        <div class="methodology-grid">
+            <div class="methodology-card">
+                <div class="method-icon">
+                    <i class="fas fa-list-check"></i>
+                </div>
+                <h3>OWASP Testing Guide</h3>
+                <p>Comprehensive web application security testing following OWASP standards and best practices.</p>
+            </div>
+            
+            <div class="methodology-card">
+                <div class="method-icon">
+                    <i class="fas fa-crosshairs"></i>
+                </div>
+                <h3>NIST Cybersecurity Framework</h3>
+                <p>Risk-based approach using NIST guidelines for identifying, protecting, detecting, responding, and recovering.</p>
+            </div>
+            
+            <div class="methodology-card">
+                <div class="method-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>PTES (Penetration Testing Execution Standard)</h3>
+                <p>Systematic penetration testing methodology covering all phases from pre-engagement to reporting.</p>
+            </div>
+            
+            <div class="methodology-card">
+                <div class="method-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Custom Frameworks</h3>
+                <p>Tailored testing approaches developed for specific client needs and industry requirements.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tools & Technologies -->
+<section class="tools-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Tools & Technologies</h2>
+            <p>Professional-grade cybersecurity tools and platforms</p>
+        </div>
+        
+        <div class="tools-categories">
+            <div class="tool-category">
+                <h3><i class="fas fa-search"></i> Reconnaissance & Scanning</h3>
+                <div class="tool-grid">
+                    <div class="tool-item">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Nmap</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-eye"></i>
+                        <span>Masscan</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-globe"></i>
+                        <span>Shodan</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-search-location"></i>
+                        <span>Recon-ng</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tool-category">
+                <h3><i class="fas fa-bug"></i> Vulnerability Assessment</h3>
+                <div class="tool-grid">
+                    <div class="tool-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Nessus</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-search"></i>
+                        <span>OpenVAS</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-globe"></i>
+                        <span>Burp Suite</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>OWASP ZAP</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tool-category">
+                <h3><i class="fas fa-bomb"></i> Exploitation & Post-Exploitation</h3>
+                <div class="tool-grid">
+                    <div class="tool-item">
+                        <i class="fas fa-rocket"></i>
+                        <span>Metasploit</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-crown"></i>
+                        <span>Cobalt Strike</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-terminal"></i>
+                        <span>PowerShell Empire</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-key"></i>
+                        <span>Mimikatz</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tool-category">
+                <h3><i class="fas fa-microscope"></i> Forensics & Analysis</h3>
+                <div class="tool-grid">
+                    <div class="tool-item">
+                        <i class="fas fa-search"></i>
+                        <span>Autopsy</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-memory"></i>
+                        <span>Volatility</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Wireshark</span>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-file-code"></i>
+                        <span>YARA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="projects-cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Interested in Working Together?</h2>
+            <p>Let's discuss how I can help secure your organization with proven methodologies and cutting-edge tools.</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Start a Project
+                </a>
+                <a href="{{ url_for('services') }}" class="btn btn-outline">
+                    <i class="fas fa-cogs"></i> View Services
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Details Modal -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Project Details</h2>
+            <span class="close" onclick="closeProjectModal()">&times;</span>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <!-- Project details will be populated here -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Project filtering functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeInUp 0.5s ease-out';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+// Project modal functionality
+function openProjectModal(projectTitle) {
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    
+    modalTitle.textContent = projectTitle;
+    
+    // This would typically fetch project details from a database
+    modalBody.innerHTML = `
+        <p>Detailed information about ${projectTitle} would be displayed here.</p>
+        <p>This could include technical specifications, challenges faced, solutions implemented, and results achieved.</p>
+    `;
+    
+    modal.style.display = 'block';
+}
+
+function closeProjectModal() {
+    document.getElementById('projectModal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('projectModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+</script>
+{% endblock %}

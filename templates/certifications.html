@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block title %}Certifications - Sakil Ahamed Gayen{% endblock %}
+
+{% block content %}
+<!-- Certifications Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Professional Certifications</h1>
+        <p>Validated expertise through global cybersecurity certifications</p>
+    </div>
+</section>
+
+<!-- Certifications Grid -->
+<section class="certifications-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Industry-Recognized Credentials</h2>
+            <p>My commitment to excellence is demonstrated through these advanced certifications from leading cybersecurity organizations</p>
+        </div>
+        
+        <div class="certifications-grid">
+            {% for cert in certifications %}
+            <div class="certification-card">
+                <div class="cert-header">
+                    <div class="cert-icon">{{ cert.icon }}</div>
+                    <div class="cert-level">{{ cert.level }}</div>
+                </div>
+                
+                <div class="cert-content">
+                    <h3>{{ cert.name }}</h3>
+                    <p class="cert-issuer">
+                        <i class="fas fa-building"></i> {{ cert.issuer }}
+                    </p>
+                    <p class="cert-description">{{ cert.description }}</p>
+                </div>
+                
+                <div class="cert-footer">
+                    <div class="cert-badge">
+                        <i class="fas fa-check-circle"></i> Certified
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Certification Path -->
+<section class="cert-path-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Certification Journey</h2>
+            <p>My path to cybersecurity expertise</p>
+        </div>
+        
+        <div class="cert-timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>CC - Certified in Cybersecurity</h3>
+                    <p class="timeline-issuer">ISC2</p>
+                    <p class="timeline-desc">Foundation certification covering cybersecurity principles and best practices</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>ICCA - INE Certified Cloud Associate</h3>
+                    <p class="timeline-issuer">INE Security</p>
+                    <p class="timeline-desc">Cloud security fundamentals and implementation strategies</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>eJPT - Junior Penetration Tester</h3>
+                    <p class="timeline-issuer">INE Security</p>
+                    <p class="timeline-desc">Hands-on penetration testing skills and vulnerability assessment</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>eWPT - Web Application Penetration Tester</h3>
+                    <p class="timeline-issuer">INE Security</p>
+                    <p class="timeline-desc">Advanced web application security testing and exploitation techniques</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Validation -->
+<section class="skills-validation">
+    <div class="container">
+        <div class="section-header">
+            <h2>Validated Skills & Competencies</h2>
+            <p>Technical expertise verified through practical assessments</p>
+        </div>
+        
+        <div class="skills-categories">
+            <div class="skill-category">
+                <h3><i class="fas fa-search"></i> Penetration Testing</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Network Security Assessment</span>
+                    <span class="skill-tag">Vulnerability Scanning</span>
+                    <span class="skill-tag">Exploitation Techniques</span>
+                    <span class="skill-tag">Post-Exploitation</span>
+                    <span class="skill-tag">Social Engineering</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-globe"></i> Web Application Security</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">OWASP Top 10</span>
+                    <span class="skill-tag">SQL Injection</span>
+                    <span class="skill-tag">XSS Prevention</span>
+                    <span class="skill-tag">Authentication Bypass</span>
+                    <span class="skill-tag">Session Management</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-cloud"></i> Cloud Security</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS Security</span>
+                    <span class="skill-tag">Azure Security</span>
+                    <span class="skill-tag">Cloud Architecture</span>
+                    <span class="skill-tag">IAM Management</span>
+                    <span class="skill-tag">Compliance</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Security Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Burp Suite</span>
+                    <span class="skill-tag">Metasploit</span>
+                    <span class="skill-tag">Nmap</span>
+                    <span class="skill-tag">Wireshark</span>
+                    <span class="skill-tag">OWASP ZAP</span>
+                    <span class="skill-tag">Nessus</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Continuing Education -->
+<section class="continuing-education">
+    <div class="container">
+        <div class="education-content">
+            <div class="education-text">
+                <h2>Commitment to Continuous Learning</h2>
+                <p>
+                    The cybersecurity landscape evolves rapidly, and staying current with the latest 
+                    threats, technologies, and best practices is crucial. I maintain my certifications 
+                    through continuing education and regularly pursue additional training.
+                </p>
+                
+                <div class="learning-goals">
+                    <h3>Current Learning Goals</h3>
+                    <ul>
+                        <li><i class="fas fa-target"></i> Advanced Malware Analysis Techniques</li>
+                        <li><i class="fas fa-target"></i> Cloud Security Architecture</li>
+                        <li><i class="fas fa-target"></i> AI/ML in Cybersecurity</li>
+                        <li><i class="fas fa-target"></i> Zero Trust Security Models</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="education-stats">
+                <div class="stat-card">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Hours of Annual Training</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Active Certifications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Certification Maintenance</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cert-cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Work with a Certified Professional?</h2>
+            <p>Let's discuss how my validated expertise can help secure your organization.</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Contact Me
+                </a>
+                <a href="{{ url_for('services') }}" class="btn btn-outline">
+                    <i class="fas fa-cogs"></i> View Services
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

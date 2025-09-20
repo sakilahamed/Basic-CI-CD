@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+
+{% block title %}Services - Sakil Ahamed Gayen{% endblock %}
+
+{% block content %}
+<!-- Services Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Cybersecurity Services</h1>
+        <p>Comprehensive security solutions for modern businesses</p>
+    </div>
+</section>
+
+<!-- Services Grid -->
+<section class="services-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>What I Offer</h2>
+            <p>Professional cybersecurity services tailored to your organization's needs</p>
+        </div>
+        
+        <div class="services-grid">
+            {% for service in services %}
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">{{ service.icon }}</div>
+                    <h3>{{ service.title }}</h3>
+                </div>
+                
+                <div class="service-content">
+                    <p class="service-description">{{ service.description }}</p>
+                    
+                    <div class="service-features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            {% for feature in service.features %}
+                            <li><i class="fas fa-check"></i> {{ feature }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-footer">
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="process-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>My Process</h2>
+            <p>A systematic approach to cybersecurity excellence</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Assessment</h3>
+                    <p>Comprehensive evaluation of your current security posture, identifying vulnerabilities and risk areas.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Planning</h3>
+                    <p>Development of a customized security strategy tailored to your specific needs and compliance requirements.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Implementation</h3>
+                    <p>Execution of security measures, testing procedures, and deployment of protective solutions.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Monitoring</h3>
+                    <p>Ongoing surveillance and maintenance to ensure continued protection against evolving threats.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Specializations -->
+<section class="specializations">
+    <div class="container">
+        <div class="section-header">
+            <h2>Areas of Specialization</h2>
+            <p>Deep expertise across multiple cybersecurity domains</p>
+        </div>
+        
+        <div class="specialization-grid">
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Network Security</h3>
+                <p>Comprehensive network infrastructure protection including firewalls, IDS/IPS, and network segmentation.</p>
+                <div class="spec-tools">
+                    <span class="tool-tag">Nmap</span>
+                    <span class="tool-tag">Wireshark</span>
+                    <span class="tool-tag">pfSense</span>
+                </div>
+            </div>
+            
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Application Security</h3>
+                <p>Secure code review, application penetration testing, and DevSecOps implementation.</p>
+                <div class="spec-tools">
+                    <span class="tool-tag">Burp Suite</span>
+                    <span class="tool-tag">OWASP ZAP</span>
+                    <span class="tool-tag">SonarQube</span>
+                </div>
+            </div>
+            
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Cloud Security</h3>
+                <p>Cloud infrastructure security, compliance, and migration security for AWS, Azure, and GCP.</p>
+                <div class="spec-tools">
+                    <span class="tool-tag">CloudTrail</span>
+                    <span class="tool-tag">AWS Config</span>
+                    <span class="tool-tag">Terraform</span>
+                </div>
+            </div>
+            
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Digital Forensics</h3>
+                <p>Incident investigation, evidence collection, and forensic analysis for security breaches.</p>
+                <div class="spec-tools">
+                    <span class="tool-tag">Autopsy</span>
+                    <span class="tool-tag">Volatility</span>
+                    <span class="tool-tag">YARA</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Industries Served -->
+<section class="industries-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Industries I Serve</h2>
+            <p>Cybersecurity expertise across diverse business sectors</p>
+        </div>
+        
+        <div class="industries-grid">
+            <div class="industry-card">
+                <i class="fas fa-university"></i>
+                <h3>Financial Services</h3>
+                <p>Banking, insurance, and fintech security compliance</p>
+            </div>
+            
+            <div class="industry-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Healthcare</h3>
+                <p>HIPAA compliance and medical data protection</p>
+            </div>
+            
+            <div class="industry-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>E-commerce</h3>
+                <p>Payment security and customer data protection</p>
+            </div>
+            
+            <div class="industry-card">
+                <i class="fas fa-industry"></i>
+                <h3>Manufacturing</h3>
+                <p>Industrial IoT and operational technology security</p>
+            </div>
+            
+            <div class="industry-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Education</h3>
+                <p>Educational institution and student data security</p>
+            </div>
+            
+            <div class="industry-card">
+                <i class="fas fa-landmark"></i>
+                <h3>Government</h3>
+                <p>Public sector security and compliance requirements</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Information -->
+<section class="pricing-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Service Packages</h2>
+            <p>Flexible pricing options to meet your budget and requirements</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Security Assessment</h3>
+                    <div class="price">Contact for Quote</div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Vulnerability Assessment</li>
+                        <li><i class="fas fa-check"></i> Security Policy Review</li>
+                        <li><i class="fas fa-check"></i> Risk Analysis Report</li>
+                        <li><i class="fas fa-check"></i> Remediation Recommendations</li>
+                    </ul>
+                </div>
+                <a href="{{ url_for('contact') }}" class="btn btn-outline">Get Quote</a>
+            </div>
+            
+            <div class="pricing-card featured">
+                <div class="pricing-header">
+                    <h3>Penetration Testing</h3>
+                    <div class="price">Contact for Quote</div>
+                    <span class="badge">Most Popular</span>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Comprehensive Pen Testing</li>
+                        <li><i class="fas fa-check"></i> Detailed Vulnerability Report</li>
+                        <li><i class="fas fa-check"></i> Executive Summary</li>
+                        <li><i class="fas fa-check"></i> Remediation Guidance</li>
+                        <li><i class="fas fa-check"></i> Follow-up Testing</li>
+                    </ul>
+                </div>
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">Get Quote</a>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Security Consulting</h3>
+                    <div class="price">Contact for Quote</div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Strategic Planning</li>
+                        <li><i class="fas fa-check"></i> Compliance Assessment</li>
+                        <li><i class="fas fa-check"></i> Security Architecture</li>
+                        <li><i class="fas fa-check"></i> Ongoing Support</li>
+                    </ul>
+                </div>
+                <a href="{{ url_for('contact') }}" class="btn btn-outline">Get Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="services-cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Strengthen Your Security?</h2>
+            <p>Let's discuss your cybersecurity needs and create a customized solution for your organization.</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Request Consultation
+                </a>
+                <a href="{{ url_for('projects') }}" class="btn btn-outline">
+                    <i class="fas fa-eye"></i> View Past Projects
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Sakil Ahamed Gayen - Cybersecurity Expert{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">
+                <span class="title-line">Sakil Ahamed Gayen</span>
+                <span class="title-line cyber-text">Cybersecurity Expert</span>
+            </h1>
+            <p class="hero-subtitle">
+                Penetration Tester • Security Consultant • Future Consultancy Owner
+            </p>
+            <p class="hero-description">
+                Protecting digital assets with advanced cybersecurity expertise and global certifications.
+                Building the future of cybersecurity consulting from West Bengal, India.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="{{ url_for('about') }}" class="btn btn-primary">
+                    <i class="fas fa-user"></i> Learn More
+                </a>
+                <a href="{{ url_for('contact') }}" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Global Certifications</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Security Focused</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Threat Monitoring</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="cyber-grid">
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+            </div>
+            <div class="floating-icons">
+                <i class="fas fa-shield-alt icon-float"></i>
+                <i class="fas fa-lock icon-float"></i>
+                <i class="fas fa-bug icon-float"></i>
+                <i class="fas fa-network-wired icon-float"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scroll-indicator">
+        <div class="scroll-arrow">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+</section>
+
+<!-- About Preview Section -->
+<section class="about-preview">
+    <div class="container">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <p>Cybersecurity professional with a passion for protecting digital infrastructure</p>
+        </div>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Education</h3>
+                <p>Cybersecurity degree from Brainware University</p>
+                <p>Multi Pariseemanto Institution graduate</p>
+            </div>
+            
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Certifications</h3>
+                <p>eJPT, eWPT, ICCA from INE Security</p>
+                <p>CC certification from ISC2</p>
+            </div>
+            
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="fas fa-target"></i>
+                </div>
+                <h3>Vision</h3>
+                <p>Building my own cybersecurity consultancy</p>
+                <p>Strengthening organizational security posture</p>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <a href="{{ url_for('about') }}" class="btn btn-outline">
+                Read Full Story <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Services Preview -->
+<section class="services-preview">
+    <div class="container">
+        <div class="section-header">
+            <h2>Services Offered</h2>
+            <p>Comprehensive cybersecurity solutions for modern businesses</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Penetration Testing</h3>
+                <p>Comprehensive security assessments to identify vulnerabilities</p>
+                <ul>
+                    <li>Network Security Testing</li>
+                    <li>Web Application Assessment</li>
+                    <li>Mobile Security Analysis</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Security Consulting</h3>
+                <p>Strategic guidance to strengthen your security posture</p>
+                <ul>
+                    <li>Security Policy Development</li>
+                    <li>Compliance Assessment</li>
+                    <li>Risk Management</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3>Incident Response</h3>
+                <p>Rapid response and forensic analysis for security incidents</p>
+                <ul>
+                    <li>Malware Analysis</li>
+                    <li>Digital Forensics</li>
+                    <li>Breach Investigation</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <a href="{{ url_for('services') }}" class="btn btn-primary">
+                View All Services <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="contact-cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Secure Your Business?</h2>
+            <p>Let's discuss how I can help protect your digital assets and strengthen your security posture.</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-light">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+                <a href="{{ url_for('certifications') }}" class="btn btn-outline-light">
+                    <i class="fas fa-certificate"></i> View Credentials
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
